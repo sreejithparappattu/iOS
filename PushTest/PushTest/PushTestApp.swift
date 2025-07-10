@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct PushTestApp: App {
+    @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().onAppear(perform: {
+                appDelegate.app = self
+            })
         }
     }
 }
